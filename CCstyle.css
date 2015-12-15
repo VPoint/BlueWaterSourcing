@@ -14,17 +14,19 @@ h1 {
      float: left;
      width: 40%;
      padding:5px;
+     padding-bottom:5%;
 }
 
 .right{
      float: right;
-     width: 60%;
-     padding:5px;
+     width: 58%;
+padding-bottom:5%;
 }
 
 #addressBox{
    background-color: white;
-   padding: 15px
+   padding: 15px;
+   padding-bottom:25px;
 }
 
 #addressBox p{
