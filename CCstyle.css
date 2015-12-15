@@ -1,9 +1,32 @@
 body {
     background-color: lightblue;
     font-family: "Verdana", Verdana, sans-serif;
+    
+    margin: 20px;
 }
 
 h1 {
     color: navy;
-    margin-left: 20px;
+    font-family:"Arial Black", Gadget, sans-serif;
+}
+
+.left{
+     float: left;
+     width: 40%;
+     padding:5px;
+}
+
+.right{
+     float: right;
+     width: 60%;
+     padding:5px;
+}
+
+#addressBox{
+   background-color: white;
+   padding: 15px
+}
+
+#addressBox p{
+   margin-bottom: -10px
 }
