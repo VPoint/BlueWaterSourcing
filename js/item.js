@@ -2,7 +2,7 @@
 var name = sessionStorage.getItem('Name');
 
 window.onload = function () {
-    setInfo();
+    displayInfo();
 
 };
 
@@ -10,8 +10,18 @@ function test() {
     document.getElementById("press").onclick = function () { myFunction() };
 
     function myFunction() {
-        display();
+        setInfo();
+        setRelated();
     }
+}
+
+function displayInfo(){
+    setInfo();
+    pageinfo['section']
+    document.getElementById('Prod_title').innerHTML = pageinfo['name'];
+    document.getElementById('page - header').innerHTML = pageinfo['name'];
+    document.getElementById('Prod_description').innerHTML = pageinfo['description'];
+    document.getElementById('lead image').innerHTML = pageinfo['image'];
 }
 
 function getInfo(filter) {
@@ -22,7 +32,33 @@ function getInfo(filter) {
 }
 
 function setRelated() {
-    
+    var table = document.getElementsByClassName('img-related');
+
+    var xmlhttp = new XMLHttpRequest();
+    var url = getInfo('*');
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var myArr = JSON.parse(xmlhttp.responseText);
+            myFunction(myArr);
+        }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
+    function myFunction(arry) {
+        var i, x;
+        x = 0;
+        var arr = arry.rows
+        for (i = 0; i < table.length; i++) {
+            while (arr[x][4] != pageinfo['section']) {
+                x++;
+            }
+            table[i].src = arr[x][2];
+            table[i].id = arr[x][1]
+            x++;
+        }
+    }
 }
 
 function setInfo() {
