@@ -1,4 +1,4 @@
-﻿window.onload = function () {
+window.onload = function () {
     select = window.location.hash.substring(1);
     defClick();
 
@@ -32,28 +32,15 @@ function defClick() {
     anchors[6].onclick = function () { changeCategory(anchors[6]); changeSection('Class') }
 }
 
-function defItem() {
-    var table = document.getElementsByClassName('img_link');
-    var img = document.getElementsByClassName("img-responsive img-hover")
-
-    table[0].onclick = function () { table[0].href = 'catalogue-item.html' + '#' + img[0].id; }
-    
-}
-
 function changeCategory(object) {
-    var g;
-
-    others = document.getElementsByClassName('list-group-item');
-    for (g = 0; g < others.length; g++) {
-        if (document.getElementById(others[g].id).className.match('list-group-item active') && (object.id != others[g].id)) {
-            document.getElementById(others[g].id).className = document.getElementById(others[g]).className.replace(' active ', '');
-        }
+    if (document.getElementById(object.id).className.match('list-group-item active')) {
+        document.getElementById(object.id).className = document.getElementById(object.id).className.replace(' active ', '');
+        alert('Nothing Selected, please choose a section');
     }
-
-    document.getElementById(object.id).className += " active ";
-    document.getElementById('section').innerHTML = document.getElementById(object.id).innerHTML.valueOf();
-
-    alert(object.id);
+    else {
+        document.getElementById(object.id).className += " active ";
+        document.getElementById('section').innerHTML = document.getElementById(object.id).innerHTML.valueOf();
+    }
 }
 
 function getInfo(filter) {
@@ -92,7 +79,6 @@ function changeSection(sec) {
             table[i].id = arr[x][1];
             titles[i].innerHTML = arr[x][1];
             tableLink[i].href = 'catalogue-item.html' + '#' + arr[x][1];
-            // localStorage.setItem('Name', arr[x][1])
             x++;
         }
     }
