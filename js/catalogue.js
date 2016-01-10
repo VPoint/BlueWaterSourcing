@@ -1,14 +1,23 @@
 ﻿window.onload = function () {
-    display();
-    test();
+    select = window.location.hash.substring(1);
     defClick();
+
+    if (section != null) {
+        changeCategory(defObj());
+        changeSection(window.select);
+    }
+    else {
+        display();
+    }
+    
 };
 
-function test() {
-    document.getElementById("press").onclick = function () { myFunction() };
-
-    function myFunction() {
-        display();
+function defObj(){
+    var anchors = document.getElementsByClassName('list-group-item');
+    for (j = 0; j < anchors.length; j++) {
+        if (anchors[j].id == window.select) {
+            return anchors[j];
+        }
     }
 }
 
@@ -16,35 +25,35 @@ function defClick() {
     var anchors = document.getElementsByClassName('list-group-item');
     anchors[0].onclick = function () { changeCategory(anchors[0]); changeSection('Art') }
     anchors[1].onclick = function () { changeCategory(anchors[1]); changeSection('Math') }
-    anchors[2].onclick = function () { changeCategory(anchors[2]) }
-    anchors[3].onclick = function () { changeCategory(anchors[3]) }
-    anchors[4].onclick = function () { changeCategory(anchors[4]) }
-    anchors[5].onclick = function () { changeCategory(anchors[5]) }
-    anchors[6].onclick = function () { changeCategory(anchors[6]) }
+    anchors[2].onclick = function () { changeCategory(anchors[2]); changeSection('Language') }
+    anchors[3].onclick = function () { changeCategory(anchors[3]); changeSection('Science') }
+    anchors[4].onclick = function () { changeCategory(anchors[4]); changeSection('Play') }
+    anchors[5].onclick = function () { changeCategory(anchors[5]); changeSection('Teacher') }
+    anchors[6].onclick = function () { changeCategory(anchors[6]); changeSection('Class') }
 }
 
 function defItem() {
-    var table = document.getElementsByClassName('img-responsive img-hover');
+    var table = document.getElementsByClassName('img_link');
+    var img = document.getElementsByClassName("img-responsive img-hover")
 
-    for (t = 0; t < table.length; t++){
-        table[t].onclick = function () {
-            sessionStorage.setItem('Name', table[t].id)
-            alert(table[t].id);
-        }
-    }
+    table[0].onclick = function () { table[0].href = 'catalogue-item.html' + '#' + img[0].id; }
+    
 }
 
 function changeCategory(object) {
-    if (document.getElementById(object.id).className.match('list-group-item active')) {
-        document.getElementById(object.id).className = document.getElementById(object.id).className.replace(' active ', '');
-        alert('Nothing Selected, please choose a section');
-    }
-    else {
-        document.getElementById(object.id).className += " active ";
-        document.getElementById('section').innerHTML = document.getElementById(object.id).innerHTML.valueOf();
+    var g;
 
-        alert(object.id);
+    others = document.getElementsByClassName('list-group-item');
+    for (g = 0; g < others.length; g++) {
+        if (document.getElementById(others[g].id).className.match('list-group-item active') && (object.id != others[g].id)) {
+            document.getElementById(others[g].id).className = document.getElementById(others[g]).className.replace(' active ', '');
+        }
     }
+
+    document.getElementById(object.id).className += " active ";
+    document.getElementById('section').innerHTML = document.getElementById(object.id).innerHTML.valueOf();
+
+    alert(object.id);
 }
 
 function getInfo(filter) {
@@ -56,6 +65,8 @@ function getInfo(filter) {
 
 function changeSection(sec) {
     var table = document.getElementsByClassName('img-responsive img-hover');
+    var titles = document.getElementsByClassName('caption');
+    var tableLink = document.getElementsByClassName('img_link');
 
     var xmlhttp = new XMLHttpRequest();
     var url = getInfo('*');
@@ -78,7 +89,10 @@ function changeSection(sec) {
                 x++;
             }
             table[i].src = arr[x][2];
-            table[i].id = arr[x][1]
+            table[i].id = arr[x][1];
+            titles[i].innerHTML = arr[x][1];
+            tableLink[i].href = 'catalogue-item.html' + '#' + arr[x][1];
+            // localStorage.setItem('Name', arr[x][1])
             x++;
         }
     }
@@ -86,9 +100,11 @@ function changeSection(sec) {
 
 function display() {
     var table = document.getElementsByClassName('img-responsive img-hover');
+    var titles = document.getElementsByClassName('caption');
+    var tableLink = document.getElementsByClassName('img_link');
 
     var xmlhttp = new XMLHttpRequest();
-    var url = getInfo('Image');
+    var url = getInfo('Image, Name');
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -103,7 +119,9 @@ function display() {
         var i;
         var arr = arry.rows
         for (i = 0; i < table.length; i++) {
-            table[i].src = arr[i];
+            table[i].src = arr[i][0];
+            titles[i].innerHTML = arr[i][1];
+            tableLink[i].href = 'catalogue-item.html' + '#' + arr[i][1];
         }
     }
 }

@@ -1,27 +1,12 @@
-﻿var pageinfo;
-var name = sessionStorage.getItem('Name');
-
-window.onload = function () {
+﻿window.onload = function () {
+    name = window.location.hash.substring(1);
+    alert(name);
     displayInfo();
-
 };
 
-function test() {
-    document.getElementById("press").onclick = function () { myFunction() };
-
-    function myFunction() {
-        setInfo();
-        setRelated();
-    }
-}
-
-function displayInfo(){
+function displayInfo() {
     setInfo();
-    pageinfo['section']
-    document.getElementById('Prod_title').innerHTML = pageinfo['name'];
-    document.getElementById('page - header').innerHTML = pageinfo['name'];
-    document.getElementById('Prod_description').innerHTML = pageinfo['description'];
-    document.getElementById('lead image').innerHTML = pageinfo['image'];
+    setRelated();
 }
 
 function getInfo(filter) {
@@ -33,6 +18,7 @@ function getInfo(filter) {
 
 function setRelated() {
     var table = document.getElementsByClassName('img-related');
+    var tableLink = document.getElementsByClassName('img_link');
 
     var xmlhttp = new XMLHttpRequest();
     var url = getInfo('*');
@@ -47,22 +33,25 @@ function setRelated() {
     xmlhttp.send();
 
     function myFunction(arry) {
+        var selection = [];
         var i, x;
         x = 0;
         var arr = arry.rows
         for (i = 0; i < table.length; i++) {
-            while (arr[x][4] != pageinfo['section']) {
+            while (arr[x][4] != window.section) {
                 x++;
             }
+            selection.push({ pic: arr[x][2], obj_id: arr[x][1], obj_url: 'catalogue-item.html' + '#' + arr[x][1] });
             table[i].src = arr[x][2];
-            table[i].id = arr[x][1]
+            table[i].id = arr[x][1];
+            tableLink[i].href = 'catalogue-item.html' + '#' + arr[x][1];
+            tableLink[i].onclick = function () { location.reload() }
             x++;
         }
     }
 }
 
 function setInfo() {
-    var table = document.getElementsByClassName('img-responsive img-hover');
 
     var xmlhttp = new XMLHttpRequest();
     var url = getInfo('*');
@@ -79,15 +68,15 @@ function setInfo() {
     function myFunction(arry) {
         var i, x;
         x = 0;
-        var arr = arry.rows
-        while (arr[x][1] != name) {
-                x++;
+        var arr = arry.rows;
+        while (arr[x][1] != window.name) {
+            x++;
         }
-        pageinfo['name'] = arr[x][1]
-        pageinfo['image'] = arr[x][2]
-        pageinfo['description'] = arr[x][3]
-        pageinfo['section'] = arr[x][4]
-
-        alert(pageinfo);
+        alert(arr[x][1], arr[x][2], arr[x][3], arr[x][4]);
+        document.getElementById('page-header').innerHTML = arr[x][1];
+        document.getElementById('prod-title').innerHTML = arr[x][1];
+        document.getElementById('prod-description').innerHTML = arr[x][3];
+        document.getElementById('lead-image').src = arr[x][2];
+        section = arr[x][4];
     }
 }
