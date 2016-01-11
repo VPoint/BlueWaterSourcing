@@ -1,45 +1,210 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+<html lang="en">
+
 <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Home">
+    <meta name="author" content="BWSCanada">
+
     <title>Complete Classroom</title>
-    <link rel="stylesheet" type="text/css" href="CC_style.css">
+    
+    <!-- Add a Favicon -->
+    <!--<link rel="shortcut icon" type="image/png" href="/favicon.png" />-->
+    <link rel="shortcut icon" type="image/x-icon" href="/bin/favicon.ico" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/completeclass.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
 <body>
-    <header>
-        <h1>Complete Classroom</h1>
-        <nav> 
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="CC_Catalogue.html#ArtsandCrafts">Arts and Crafts</a></li>
-                <li><a href="CC_Catalogue.html#Mathematics">Mathematics</a></li>
-                <li><a href="CC_Catalogue.html#Language">Language Arts</a></li>
-                <li><a href="CC_Catalogue.html#Science">Science</a></li>
-                <li><a href="CC_Catalogue.html#Play">Learning Through Play</a></li>
-                <li><a href="CC_Catalogue.html#Teacher">Teacher's Ressources</a></li>
-                <li><a href="CC_Catalogue.html#Class">Classroom Furniture</a></li>
-                <li><a href="CC_Catalogue.html">Catalogue</a></li>
-                <li><a href="CC_AboutUs.html">About Us</a></li>
-                <li><a href="CC_ContactUs.html">Contact Us</a></li>
-            </ul>
-        </nav>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Complete Classroom</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="about_us.html">About Us</a>
+                    </li>
+                    <li>
+                        <a href="contact_us.html">Contact Us</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catalogue<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="catalogue.html#Art">Arts and Crafts</a></li>
+                            <li><a href="catalogue.html#Math">Mathematics</a></li>
+                            <li><a href="catalogue.html#Language">Language Arts</a></li>
+                            <li><a href="catalogue.html#Science">Science</a></li>
+                            <li><a href="catalogue.html#Play">Learning Through Play</a></li>
+                            <li><a href="catalogue.html#Teacher">Teacher's Ressources</a></li>
+                            <li><a href="catalogue.html#Class">Classroom Furniture</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('http://just4kidsadventures.com/wp-content/uploads/2012/01/kid-teaching-kid-resized.jpg');"></div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('https://farm4.static.flickr.com/3707/13584535514_c2bb726231.jpg');"></div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://farm5.static.flickr.com/4141/4941486378_230eaa2f9a.jpg');"></div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
     </header>
-    
-    <h2>Home</h2>
-    <p>Our Promise to the Consumer</p>
 
-    <p>After a change in management and renewed fervor. Blue Water Sourcing has been experiencing exponential growth. We have pride in our excellent timely service that is based fundamentally on      
-    perseverance and efficiency and quality. We ensure the best products are supplied to the consumer by inspecting every individual product that passes through our hands. At BWS Inc. quality is not an       option, it’s a must.</p>
+    <!-- Page Content -->
+    <div class="container">
 
-    <p>Our products are great for the environment
-    We’ve been in business for over 10 years
-    Call our toll-free number: 1 (800)784-4220
-    We look forward to doing business with you!</p>
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Welcome to Complete Classroom
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i> Quality Products</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Our products have the greatest quality assurance standard. They are durable enough to be used year after year, yet gentle enough to not harm the children who use them.</p>
+                        <a href="catalogue.html#Art" class="btn btn-default">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-gift"></i> Reliable Delivery</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Shipping anywhere in Canada is free and timely using UPS shipping standards to get to your location on time and intact. Shop now to discover our selection of products and rates.</p>
+                        <a href="catalogue.html#Art" class="btn btn-default">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-compass"></i> Helpful Customer Service</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Our state of the art customer service assesses the needs of our customers in real time. Our people will always be polite and ready to serve you in your time of need.</p>
+                        <a href="contact_us.html" class="btn btn-default">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
 
-    <p>Product Management,</p>
-    <p>Blue Water Sourcing Inc.</p>
+        <!-- Features Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Our Promise to the Consumer</h2>
+            </div>
+            <div class="col-md-6">
+                <p></p>
+                <p>After a change in management and renewed fervor. Blue Water Sourcing has been experiencing exponential growth. We have pride in our excellent timely service that is based fundamentally on
+                    perseverance and efficiency and quality. We ensure the best products are supplied to the consumer by inspecting every individual product that passes through our hands. At BWS Inc. quality is not an       option, it’s a must.
+                </p>
+                <ul>
+                    <li>Our products are great for the environment</li>
+                    <li>We’ve been in business for over 10 years</li>
+                    <li>Call our toll-free number: 1 (800)784-4220</li>
+                </ul>
+                
+                <p>We look forward to doing business with you!</p>
+                <p>Product Management,</p>
+                <p>Blue Water Sourcing Inc.</p>
+            </div>
+            <div class="col-md-6">
+                <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Soapbubbles-SteveEF.jpg" height="450" width="700" alt="child_playing">
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Complete Classroom 2016</p>
+                    <p>Contact Us at 1 (800)784-4220</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
 </body>
 
-<footer>
-    <p>Copyright of Blue Water Sourcing 2016</p>
-    <p>Contact Us at 1 (800)784-4220</p>
-</footer>
+</html>
